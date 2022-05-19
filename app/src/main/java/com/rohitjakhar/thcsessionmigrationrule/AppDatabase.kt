@@ -1,17 +1,27 @@
 package com.rohitjakhar.thcsessionmigrationrule
 
 import android.content.Context
+import androidx.room.AutoMigration
 import androidx.room.Database
+import androidx.room.RenameColumn
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.migration.AutoMigrationSpec
 import androidx.room.migration.Migration
 
 @Database(
     entities = [NameEntity::class, NumberEntity::class],
-    version = 2,
+    version = 3,
+    autoMigrations = [
+        AutoMigration(from = 2, to = 3, spec = AppDatabase.RenameUserTable::class)
+    ],
     exportSchema = true
 )
+
 abstract class AppDatabase : RoomDatabase() {
+    @RenameColumn(tableName = "Name", fromColumnName = "name", toColumnName = "user name")
+    class RenameUserTable : AutoMigrationSpec
+
     abstract fun myDap(): MyDao
 
     companion object {

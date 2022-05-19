@@ -8,5 +8,5 @@ import androidx.room.PrimaryKey
 data class NumberEntity(
     @PrimaryKey
     @ColumnInfo(name = "number")
-    val number: Int
+    val number: Long
 )

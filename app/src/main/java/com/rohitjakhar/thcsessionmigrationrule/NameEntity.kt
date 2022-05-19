@@ -7,6 +7,6 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "Name")
 data class NameEntity(
     @PrimaryKey
-    @ColumnInfo(name = "name")
-    val name: String
+    @ColumnInfo(name = "user name")
+    val name: String,
 )

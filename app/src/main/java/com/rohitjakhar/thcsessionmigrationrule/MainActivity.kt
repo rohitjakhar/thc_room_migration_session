@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
                     dao.addName(NameEntity(name = inputName.editText?.text.toString()))
                     dao.addNumber(
                         NumberEntity(
-                            number = inputNumber.editText?.text.toString().toInt()
+                            number = inputNumber.editText?.text.toString().toLong()
                         )
                     )
                 }
