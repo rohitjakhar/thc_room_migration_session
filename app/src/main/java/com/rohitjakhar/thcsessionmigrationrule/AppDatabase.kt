@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(
-    entities = [NameEntity::class], version = 1, exportSchema = true
+    entities = [NameEntity::class, NumberEntity::class], version = 2, exportSchema = true
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun myDap(): MyDao
@@ -25,6 +25,7 @@ abstract class AppDatabase : RoomDatabase() {
             context.applicationContext,
             AppDatabase::class.java, "testapp.db"
         )
+            // .fallbackToDestructiveMigration()
             .build()
     }
 }
