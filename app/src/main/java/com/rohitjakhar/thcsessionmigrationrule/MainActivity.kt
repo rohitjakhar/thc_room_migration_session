@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         btnSubmitUser.setOnClickListener {
             lifecycleScope.launchWhenCreated {
                 withContext(Dispatchers.IO) {
-                    dao.addName(NameEntity(name = inputName.editText?.text.toString()))
+                    dao.addName(UserEntity(name = inputName.editText?.text.toString()))
                     dao.addNumber(
                         NumberEntity(
                             number = inputNumber.editText?.text.toString().toLong()

@@ -7,7 +7,7 @@ import androidx.room.OnConflictStrategy
 @Dao
 interface MyDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun addName(nameEntity: NameEntity)
+    fun addName(nameEntity: UserEntity)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addNumber(numberEntity: NumberEntity)

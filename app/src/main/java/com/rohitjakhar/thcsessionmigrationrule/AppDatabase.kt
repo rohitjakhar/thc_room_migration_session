@@ -4,23 +4,28 @@ import android.content.Context
 import androidx.room.AutoMigration
 import androidx.room.Database
 import androidx.room.RenameColumn
+import androidx.room.RenameTable
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.migration.AutoMigrationSpec
 import androidx.room.migration.Migration
 
 @Database(
-    entities = [NameEntity::class, NumberEntity::class],
-    version = 3,
+    entities = [UserEntity::class, NumberEntity::class],
+    version = 4,
     autoMigrations = [
-        AutoMigration(from = 2, to = 3, spec = AppDatabase.RenameUserTable::class)
+        AutoMigration(from = 2, to = 3, spec = AppDatabase.RenameColoumn::class),
+        AutoMigration(from = 3, to = 4, spec = AppDatabase.RenameTableName::class)
     ],
     exportSchema = true
 )
 
 abstract class AppDatabase : RoomDatabase() {
     @RenameColumn(tableName = "Name", fromColumnName = "name", toColumnName = "user name")
-    class RenameUserTable : AutoMigrationSpec
+    class RenameColoumn : AutoMigrationSpec
+
+    @RenameTable(fromTableName = "Name", toTableName = "UserTable")
+    class RenameTableName : AutoMigrationSpec
 
     abstract fun myDap(): MyDao
 
