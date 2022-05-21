@@ -28,6 +28,12 @@ abstract class AppDatabase : RoomDatabase() {
     @RenameTable(fromTableName = "Name", toTableName = "UserTable")
     class RenameTableName : AutoMigrationSpec
 
+    /*
+        //TODO: Other Spec
+        @DeleteTable("tableName")
+        @DeleteColumn(tableName = "tableName", columnName = "columnName")
+
+        */
     abstract fun myDap(): MyDao
 
     companion object {
