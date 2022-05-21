@@ -11,4 +11,7 @@ interface MyDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addNumber(numberEntity: NumberEntity)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun addRandomNumber(randomNumberEntity: RandomNumberEntity)
 }

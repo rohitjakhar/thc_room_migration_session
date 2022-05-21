@@ -11,11 +11,12 @@ import androidx.room.migration.AutoMigrationSpec
 import androidx.room.migration.Migration
 
 @Database(
-    entities = [UserEntity::class, NumberEntity::class],
-    version = 4,
+    entities = [UserEntity::class, NumberEntity::class, RandomNumberEntity::class],
+    version = 5,
     autoMigrations = [
         AutoMigration(from = 2, to = 3, spec = AppDatabase.RenameColoumn::class),
-        AutoMigration(from = 3, to = 4, spec = AppDatabase.RenameTableName::class)
+        AutoMigration(from = 3, to = 4, spec = AppDatabase.RenameTableName::class),
+        AutoMigration(from = 4, to = 5)
     ],
     exportSchema = true
 )
